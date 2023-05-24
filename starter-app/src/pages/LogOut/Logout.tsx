@@ -19,10 +19,10 @@ const Logout = () => {
             }}
         > 
         {!!appStore.authStore.token  && (
-            <p className="mt-3 mb-3" style={{ color: 'green', fontSize: 14, fontWeight: 700 }}>{`Success! Token is: ${appStore.authStore.token}`}</p>
+            <p className="mt-3 mb-3" style={{ color: 'green', fontSize: 14, fontWeight: 700 }}>{`You are logged in! Token is: ${appStore.authStore.token}`}</p>
         )}
         {!!appStore.registerStore.token  && (
-            <p className="mt-3 mb-3" style={{ color: 'green', fontSize: 14, fontWeight: 700 }}>{`Success! Token is: ${appStore.registerStore.token}`}</p>
+            <p className="mt-3 mb-3" style={{ color: 'green', fontSize: 14, fontWeight: 700 }}>{`You are registered! Token is: ${appStore.registerStore.token}`}</p>
         )}
             {!!appStore.authStore.token  && (
                 <Box>
@@ -56,9 +56,8 @@ const Logout = () => {
                     sx={{ mt: 3, mb: 2 }}
                     onClick = {async (event) =>
                         {
-                          event.preventDefault()
-                          await store2.logout()
-                          
+                          event.preventDefault();
+                          await store2.logout();
                         }}
                 >
                     {store.isLoading ? (

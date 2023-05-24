@@ -1,4 +1,5 @@
 import React, {FC, ReactElement, useContext} from "react";
+import { Navigate } from "react-router-dom";
 import {
   Box,
   Link,
@@ -7,7 +8,7 @@ import {
   Menu,
   MenuItem,
   Toolbar,
-  Typography,
+  Typography
 
 } from "@mui/material";
 import MenuIcon from "@mui/icons-material/Menu";
@@ -97,7 +98,7 @@ const Navbar: FC = (): ReactElement => {
                 </Link>
               ))}
 
-{
+              {
                 (!!appStore.authStore.token || appStore.registerStore.token)? (  
                   routes1.map((page) => (
                     !!page.enabled && <Link
@@ -107,9 +108,10 @@ const Navbar: FC = (): ReactElement => {
                     color="black"
                     underline="none"
                     variant="button"
-                    sx={{ fontSize: "large", marginLeft: "2rem" }}
                   >
-                    {page.title}
+                    <MenuItem onClick={handleCloseNavMenu}>
+                    <Typography textAlign="center">{page.title}</Typography>
+                  </MenuItem>
                   </Link>
                   )))
                   : (  
@@ -121,9 +123,11 @@ const Navbar: FC = (): ReactElement => {
                       color="black"
                       underline="none"
                       variant="button"
-                      sx={{ fontSize: "large", marginLeft: "2rem" }}
+                     
                     >
-                      {page.title}
+                       <MenuItem onClick={handleCloseNavMenu}>
+                    <Typography textAlign="center">{page.title}</Typography>
+                  </MenuItem>
                     </Link>
                     )))
               }
@@ -164,7 +168,7 @@ const Navbar: FC = (): ReactElement => {
                 
               ))}
 
-{
+              {
                 (!!appStore.authStore.token || appStore.registerStore.token)? (  
                   routes1.map((page) => (
                     !!page.enabled && <Link

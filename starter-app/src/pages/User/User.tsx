@@ -98,8 +98,9 @@ const User: FC<any> = (): ReactElement => {
                     required
                     fullWidth
                     id="name"
-                    label={user?.first_name}
+                    label="Name"
                     name="name"
+                    defaultValue = {user?.first_name}
                     onChange={(event) => store.changeName(event.target.value)}
 
                 />

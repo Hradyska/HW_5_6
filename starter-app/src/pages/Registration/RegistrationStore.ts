@@ -45,7 +45,7 @@ class RegistrationStore {
     }
     async logout(){
         try {
-            await this.registerStore.logout();
+            await this.registerStore.logout();     
         }
         catch (e) {
             
